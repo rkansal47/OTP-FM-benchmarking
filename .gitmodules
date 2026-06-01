@@ -1,0 +1,42 @@
+[submodule "OTP-FM"]
+	path = OTP-FM
+	url = https://github.com/Bexorg-Inc/OTP-FM.git
+[submodule "baselines/MMFM"]
+	path = baselines/MMFM
+	url = https://github.com/Genentech/MMFM.git
+[submodule "baselines/3MSBM"]
+	path = baselines/3MSBM
+	url = https://github.com/panostheo98/3MSBM.git
+[submodule "baselines/VGFM"]
+	path = baselines/VGFM
+	url = https://github.com/DongyiWang-66/VGFM.git
+[submodule "baselines/wl-mechanics"]
+	path = baselines/wl-mechanics
+	url = https://github.com/rkansal47/wl-mechanics.git
+[submodule "baselines/DMSB"]
+	path = baselines/DMSB
+	url = https://github.com/rkansal47/DMSB.git
+[submodule "baselines/DeepRUOT"]
+	path = baselines/DeepRUOT
+	url = https://github.com/zhenyiizhang/DeepRUOT.git
+[submodule "baselines/MIOFlow"]
+	path = baselines/MIOFlow
+	url = https://github.com/KrishnaswamyLab/MIOFlow.git
+[submodule "baselines/NLSB"]
+	path = baselines/NLSB
+	url = https://github.com/take-koshizuka/NLSB.git
+[submodule "baselines/TrajectoryNet"]
+	path = baselines/TrajectoryNet
+	url = https://github.com/KrishnaswamyLab/TrajectoryNet.git
+[submodule "baselines/conditional-flow-matching"]
+	path = baselines/conditional-flow-matching
+	url = https://github.com/atong01/conditional-flow-matching.git
+[submodule "baselines/iJKOnet"]
+	path = baselines/iJKOnet
+	url = https://github.com/rkansal47/iJKOnet.git
+[submodule "baselines/jkonet-star"]
+	path = baselines/jkonet-star
+	url = https://github.com/antonioterpin/jkonet-star.git
+[submodule "baselines/metric-flow-matching"]
+	path = baselines/metric-flow-matching
+	url = https://github.com/kksniak/metric-flow-matching.git

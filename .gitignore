@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.egg
+.pytest_cache/
+.ruff_cache/
+
+# Pixi
+.pixi/
+pixi.lock
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Results / artifacts
+results/
+outputs/
+trajectories/
+*.npz
+*.pt
+*.ckpt
+*.log
+
+# Per-method conda envs are external; nothing local to ignore

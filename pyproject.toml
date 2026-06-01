@@ -1,0 +1,62 @@
+[project]
+name = "otpfm-benchmarking"
+version = "0.1.0"
+description = "Benchmarking harness for OTP-FM (Optimal Transport Potential Flow Matching). Runs ~15 baseline trajectory-inference methods against the same single-cell evaluation protocol."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Raghav Kansal"}]
+
+# Harness-level deps only. Per-method heavy deps (JAX, hydra, PyTorch-Lightning,
+# torch_ema, ...) live in per-method conda envs created by scripts/setup_*.sh.
+dependencies = [
+    "numpy>=1.24",
+    "torch>=2.0",
+    "scipy>=1.10",
+    "scikit-learn>=1.3",
+    "pandas>=2.0",
+    "tqdm>=4.60",
+    "matplotlib>=3.7",
+    "pyyaml>=6.0",
+    "pot>=0.9",
+    "torchdiffeq>=0.2",
+    "ml-collections>=0.1.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.4"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+packages = ["runners"]
+
+# ── pixi env ─────────────────────────────────────────────────────────────────
+# Use `pixi install` to set up the harness env. Per-method envs are conda envs
+# (env_mmfm, env_3msbm, env_dmsb, env_wlf, ...) created by scripts/setup_*.sh.
+[tool.pixi.project]
+channels = ["pytorch", "conda-forge"]
+platforms = ["osx-arm64", "linux-64"]
+
+[tool.pixi.dependencies]
+pytorch = ">=2.0"
+numpy = ">=1.24"
+scipy = ">=1.10"
+scikit-learn = ">=1.3"
+pandas = ">=2.0"
+tqdm = ">=4.60"
+matplotlib = ">=3.7"
+pyyaml = ">=6.0"
+pot = ">=0.9"
+ipykernel = ">=6"
+pre-commit = ">=4.6.0,<5"
+
+[tool.pixi.pypi-dependencies]
+torchdiffeq = ">=0.2"
+ml-collections = ">=0.1.1"
+otpfm-benchmarking = { path = ".", editable = true }
+
+[tool.ruff.lint]
+ignore = ["E402"]

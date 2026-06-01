@@ -1,0 +1,45 @@
+name: smoke
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install minimal harness deps
+        # We deliberately do NOT install torch / jax / lightning here — the
+        # smoke tests only need `py_compile`, pytest, and tqdm (for the
+        # tqdm-shim test). Full deps live in per-method conda envs.
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest tqdm
+
+      - name: Pre-create empty submodule placeholders
+        # The test asserts directory existence (so .gitmodules stays in sync
+        # with the on-disk layout). We don't fetch submodule contents here.
+        run: |
+          for d in OTP-FM baselines/MMFM baselines/3MSBM baselines/VGFM \
+                   baselines/wl-mechanics baselines/DMSB baselines/DeepRUOT \
+                   baselines/MIOFlow baselines/NLSB baselines/TrajectoryNet \
+                   baselines/conditional-flow-matching baselines/iJKOnet \
+                   baselines/jkonet-star baselines/metric-flow-matching; do
+            mkdir -p "$d"
+          done
+
+      - name: Run smoke tests
+        run: pytest tests/smoke -v
