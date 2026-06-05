@@ -1,7 +1,7 @@
 # OTP-FM-benchmarking
 
 Documenting code for benchmarking previous methods in [Kansal et. al., *Multimarginal flow matching with optimal transport potentials*, ICML 2026](https://arxiv.org/abs/2606.05327).
-This repository 13 baseline trajectory-inference methods as git submodules + evaluation protocols on the Embryoid Body (EB) and CITE single-cell RNA sequencing datasets.
+This repository contains 13 baseline trajectory-inference methods as git submodules + evaluation protocols on the Embryoid Body (EB) and CITE single-cell RNA sequencing datasets.
 We welcome any feedback from authors or others for improving the evaluation.
 
 ## Repository layout
@@ -33,7 +33,7 @@ OTP-FM-benchmarking/
 └── pyproject.toml                      # pixi/uv-installable harness env
 ```
 
-Per-method details (citations, patches, result-cell provenance, exact reproduce CLIs) in [docs/methods.md](docs/methods.md).
+Per-method details (citations, patches, result-cell provenance, exact reproduce CLIs) in [methods.md](methods.md).
 
 ## Quick start
 
@@ -54,6 +54,9 @@ pixi shell    # numpy / torch / pot / torchdiffeq / sklearn / ml-collections
 The harness env only carries the small set of dependencies needed by OTP-FM's data loaders and our evaluation helpers. Each baseline lives in its own conda env (`env_<method>`) created by the corresponding [`scripts/setup_<method>.sh`](scripts/) (Linux/CUDA only).
 
 ### 3. Put EB / CITE data in place
+
+See the [OTP-FM repo](https://github.com/Bexorg-Inc/OTP-FM/blob/main/REPRODUCIBILITY.md).
+
 ```bash
 ls OTP-FM-benchmarking/data/
 # expected:
@@ -62,7 +65,7 @@ ls OTP-FM-benchmarking/data/
 # cite_pca50.npz       # same as above, NPZ form used by some baselines
 ```
 
-## Fully-worked example: MIOFlow on EB 5D L1O
+## Worked example: MIOFlow on EB 5D L1O
 
 ```bash
 # (a) Make sure submodules are checked out and pinned
