@@ -1,6 +1,6 @@
 # OTP-FM-benchmarking
 
-Documenting code for benchmarking previous methods in [Kansal et. al., *Multimarginal flow matching with optimal transport potentials*, ICML 2026]().
+Documenting code for benchmarking previous methods in [Kansal et. al., *Multimarginal flow matching with optimal transport potentials*, ICML 2026](https://arxiv.org/abs/2606.05327).
 This repository 13 baseline trajectory-inference methods as git submodules + evaluation protocols on the Embryoid Body (EB) and CITE single-cell RNA sequencing datasets.
 We welcome any feedback from authors or others for improving the evaluation.
 
@@ -99,5 +99,12 @@ Results are appended to `scripts/timing_results.csv` (one row per (method, datas
 ## Citation
 
 ```bibtex
-% Citation block to be added with the camera-ready paper.
+@inproceedings{kansal2026multimarginal,
+    title={Multimarginal flow matching with optimal transport potentials},
+    author={Raghav Kansal and David Crair and Nghia Nguyen and Scott Pope and Bradley Parry},
+    booktitle={Forty-third International Conference on Machine Learning},
+    year={2026},
+    eprint={2606.05327},
+    url={https://arxiv.org/abs/2606.05327},
+}
 ```

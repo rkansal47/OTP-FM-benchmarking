@@ -1,7 +1,7 @@
 [project]
 name = "otpfm-benchmarking"
 version = "0.1.0"
-description = "Benchmarking harness for OTP-FM (Optimal Transport Potential Flow Matching). Runs ~15 baseline trajectory-inference methods against the same single-cell evaluation protocol."
+description = "Benchmarking for OTP-FM (Optimal Transport Potential Flow Matching). Runs ~15 baseline trajectory-inference methods against the same single-cell evaluation protocols."
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
