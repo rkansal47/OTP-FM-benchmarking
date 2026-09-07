@@ -24,13 +24,13 @@ from pathlib import Path
 
 os.environ["WANDB_MODE"] = "disabled"
 
-import matplotlib  # noqa: E402
+import matplotlib
 
 matplotlib.use("Agg")
-import numpy as np  # noqa: E402
-import ot as pot_lib  # noqa: E402
-import torch  # noqa: E402
-import torchdiffeq  # noqa: E402
+import numpy as np
+import ot as pot_lib
+import torch
+import torchdiffeq
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
@@ -40,15 +40,14 @@ OTP_FM_DIR = BASE_DIR / "OTP-FM"
 MFM_ROOT = Path(__file__).resolve().parents[1] / "baselines" / "metric-flow-matching"
 sys.path.insert(0, str(MFM_ROOT))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _runtime_patches import patch_mfm_rbf_eps  # noqa: E402
+from _runtime_patches import patch_mfm_rbf_eps
 
 patch_mfm_rbf_eps()  # guard against zero sigma in RBFNetwork
 
-from mfm.networks.flow_networks.mlp import VelocityNet  # noqa: E402
-from mfm.networks.geopath_networks.mlp import GeoPathMLP  # noqa: E402
-from mfm.flow_matchers.models.mfm import MetricFlowMatcher  # noqa: E402
-
-from _traj_utils import save_trajectory_and_checkpoint_torchdiffeq  # noqa: E402
+from _traj_utils import save_trajectory_and_checkpoint_torchdiffeq
+from mfm.flow_matchers.models.mfm import MetricFlowMatcher
+from mfm.networks.flow_networks.mlp import VelocityNet
+from mfm.networks.geopath_networks.mlp import GeoPathMLP
 
 # Patch torch.load for compat
 _orig = torch.load

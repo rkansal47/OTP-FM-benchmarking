@@ -25,9 +25,9 @@ import torch
 VGFM_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), "baselines", "VGFM")
 sys.path.insert(0, VGFM_ROOT)
 
+from VGFM.losses import OT_loss1
 from VGFM.models import FNet
 from VGFM.train import pretrain, train
-from VGFM.losses import OT_loss1
 
 DATASET_CONFIGS = {
     "eb5": dict(
