@@ -41,16 +41,16 @@ OTP_FM_DIR = BASE_DIR / "OTP-FM"
 MIOFLOW_ROOT = Path(__file__).resolve().parents[1] / "baselines" / "MIOFlow"
 sys.path.insert(0, str(MIOFLOW_ROOT))
 
-from mioflow.mioflow import train_mioflow  # noqa: E402
-from mioflow.core.models.ode_model import ODEFunc  # noqa: E402
+from mioflow.core.models.ode_model import ODEFunc
+from mioflow.mioflow import train_mioflow
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _runtime_patches import patch_mioflow_odeint  # noqa: E402
+from _runtime_patches import patch_mioflow_odeint
 
 patch_mioflow_odeint()  # force RK4 step_size=0.1 (paper-run integrator config)
 
-from _traj_utils import save_trajectory_npz, save_torch_checkpoint  # noqa: E402
-from mioflow.core.datasets import TimeSeriesDataset  # noqa: E402
+from _traj_utils import save_torch_checkpoint, save_trajectory_npz
+from mioflow.core.datasets import TimeSeriesDataset
 
 
 def _import_from(name, filepath):

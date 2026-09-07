@@ -26,10 +26,10 @@ from pathlib import Path
 os.environ["XLA_PYTHON_CLIENT_PREALLOCATE"] = "false"
 os.environ["WANDB_MODE"] = "disabled"
 
-import jax
-import jax.numpy as jnp
 import flax
 import flax.jax_utils as flax_utils
+import jax
+import jax.numpy as jnp
 import numpy as np
 import ot as pot
 from jax import random
@@ -43,11 +43,11 @@ WLF_DIR = Path(__file__).resolve().parents[1] / "baselines" / "wl-mechanics"
 sys.path.insert(0, str(WLF_DIR))
 os.chdir(str(WLF_DIR))
 
+import eval_utils as eutils
 import losses
 import train_utils as tutils
-import eval_utils as eutils
-from models import utils as mutils
 from models import mlp  # noqa: F401 – registers models
+from models import utils as mutils
 
 EXPERIMENT_CONFIGS = {
     "eb5_l2o": {
@@ -377,8 +377,8 @@ def train_and_evaluate_fold(cfg_exp, holdout_indices, seed):
     # Use a per-timepoint generator that saves at all marginal times.
     try:
         sys.path.insert(0, str(BASE_DIR / "runners"))
-        from _traj_utils import save_trajectory_npz
         import diffrax
+        from _traj_utils import save_trajectory_npz
 
         # Ensure all marginal times (train + held) are present, sorted.
         all_t = sorted(list(t_train) + [t_held[hi] for hi in holdout_indices])
