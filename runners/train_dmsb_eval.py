@@ -214,8 +214,8 @@ def train_and_predict_dmsb(cfg, holdout_indices, all_marginals_scaled, device_st
 
     try:
         import data as dmsb_data
-        import sde
         import policy
+        import sde
         from runner import Runner, freeze_policy
 
         opt, train_indices = build_dmsb_opt(cfg, holdout_indices, device_str, seed)

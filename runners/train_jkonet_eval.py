@@ -44,10 +44,10 @@ os.chdir(str(JKONET_DIR))
 import jax
 import numpy as np
 import yaml
-from models import EnumMethod, get_model
 from dataset import PopulationEvalDataset
-from utils.sde_simulator import get_SDE_predictions
+from models import EnumMethod, get_model
 from torch.utils.data import DataLoader, Dataset
+from utils.sde_simulator import get_SDE_predictions
 
 
 class FilteredCouplingsDataset(Dataset):

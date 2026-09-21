@@ -24,7 +24,7 @@ from pathlib import Path
 import numpy as np
 import ot
 import torch
-import torch.optim as optim
+from torch import optim
 from torch.utils.data import DataLoader
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -37,8 +37,8 @@ NLSB_DIR = Path(__file__).resolve().parents[1] / "baselines" / "NLSB"
 sys.path.insert(0, str(NLSB_DIR))
 os.chdir(str(NLSB_DIR))
 
-from model import SDENet, SDE_MODEL_NAME, LAGRANGIAN_NAME
-from dataset import scRNASeq, BalancedBatchSampler
+from dataset import BalancedBatchSampler, scRNASeq
+from model import LAGRANGIAN_NAME, SDE_MODEL_NAME, SDENet
 
 
 def _import_from(name, filepath):

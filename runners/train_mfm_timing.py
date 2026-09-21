@@ -17,7 +17,7 @@ import time
 
 os.environ["WANDB_MODE"] = "disabled"
 
-import torch  # noqa: E402
+import torch
 
 _orig_torch_load = torch.load
 
@@ -34,13 +34,17 @@ MFM_ROOT = os.path.join(
 )
 sys.path.insert(0, MFM_ROOT)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from _runtime_patches import patch_mfm_rbf_eps  # noqa: E402
+from _runtime_patches import patch_mfm_rbf_eps
 
 patch_mfm_rbf_eps()  # guard against zero sigma in RBFNetwork
 
-from mfm.train.main import main as mfm_main  # noqa: E402
-from mfm.train.parsers import parse_args as mfm_parse_args  # noqa: E402
-from mfm.train.train_utils import load_config, merge_config, dataset_name2datapath  # noqa: E402
+from mfm.train.main import main as mfm_main
+from mfm.train.parsers import parse_args as mfm_parse_args
+from mfm.train.train_utils import (
+    dataset_name2datapath,
+    load_config,
+    merge_config,
+)
 
 DATASET_CONFIGS = {
     "eb5": {
