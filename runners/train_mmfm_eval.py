@@ -35,8 +35,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import ot
 import torch
-import torch.nn as nn
 import torchdiffeq
+from torch import nn
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
