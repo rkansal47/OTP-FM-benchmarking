@@ -35,8 +35,8 @@ TNET_DIR = Path(__file__).resolve().parents[1] / "baselines" / "TrajectoryNet"
 sys.path.insert(0, str(TNET_DIR))
 from TrajectoryNet.train_misc import (
     build_model_tabular,
-    set_cnf_options,
     create_regularization_fns,
+    set_cnf_options,
 )
 
 
