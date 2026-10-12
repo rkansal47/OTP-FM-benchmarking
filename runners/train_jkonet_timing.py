@@ -117,10 +117,10 @@ def run_training(
 
     import jax
     import yaml
-    from tqdm import tqdm
-    from torch.utils.data import DataLoader
-    from models import EnumMethod, get_model
     from dataset import PopulationEvalDataset
+    from models import EnumMethod, get_model
+    from torch.utils.data import DataLoader
+    from tqdm import tqdm
 
     # Resolve solver enum
     solver_enum = EnumMethod(solver)

@@ -36,14 +36,13 @@ DEEPRUOT_DIR = Path(__file__).resolve().parents[1] / "baselines" / "DeepRUOT"
 
 sys.path.insert(0, str(DEEPRUOT_DIR))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _runtime_patches import shim_tqdm_notebook  # noqa: E402
+from _runtime_patches import shim_tqdm_notebook
 
 shim_tqdm_notebook()  # DeepRUOT/train.py uses `from tqdm.notebook import tqdm`
-from DeepRUOT.models import FNet, ODEFunc  # noqa: E402
-from DeepRUOT.train import train_un1  # noqa: E402
-from DeepRUOT.losses import OT_loss1  # noqa: E402
-
-from _traj_utils import save_trajectory_and_checkpoint_torchdiffeq  # noqa: E402
+from _traj_utils import save_trajectory_and_checkpoint_torchdiffeq
+from DeepRUOT.losses import OT_loss1
+from DeepRUOT.models import FNet, ODEFunc
+from DeepRUOT.train import train_un1
 
 
 def _import_from(name, filepath):

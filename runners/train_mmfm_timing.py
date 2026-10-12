@@ -24,10 +24,9 @@ from pathlib import Path
 
 import numpy as np
 import torch
-import torch.nn as nn
 from scipy import interpolate
+from torch import nn
 from tqdm import tqdm
-
 
 # ---------------------------------------------------------------------------
 # MLP velocity network (matches the architecture in train_mmfm_eb.py)
