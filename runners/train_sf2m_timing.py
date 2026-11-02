@@ -29,7 +29,7 @@ from pathlib import Path
 
 import numpy as np
 import torch
-import torch.nn as nn
+from torch import nn
 from tqdm import tqdm
 
 sys.path.insert(
@@ -37,7 +37,6 @@ sys.path.insert(
 )
 
 from torchcfm.conditional_flow_matching import SchrodingerBridgeConditionalFlowMatcher
-
 
 # ---------------------------------------------------------------------------
 # MLP architecture (matches torchcfm examples: 4-layer SELU MLP)

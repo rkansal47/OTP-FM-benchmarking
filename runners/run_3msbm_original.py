@@ -16,9 +16,9 @@ Requirements:
     - OTP-FM EB data at OTP-FM/data/eb_velocity_v5.npz
 """
 
-import sys
 import argparse
 import copy
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -116,8 +116,7 @@ def RNAsc_builder_patched(opt, pcs, labels):
 
 def patch_data_loading(pcs, labels):
     """Monkey-patch 3MSBM's data loading."""
-    from dataset import RNA_seq
-    from dataset import get_dataset
+    from dataset import RNA_seq, get_dataset
 
     # Store data in module for access
     RNA_seq._eb_pcs = pcs
@@ -223,12 +222,11 @@ def main():
     patch_data_loading(pcs, labels)
 
     # Import training modules after patching
-    import pytorch_lightning as pl
-    from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor
-    from omegaconf import OmegaConf
-
     import multimarg_runner
+    import pytorch_lightning as pl
     from dataset.get_dataset import get_dist
+    from omegaconf import OmegaConf
+    from pytorch_lightning.callbacks import LearningRateMonitor, ModelCheckpoint
 
     # Create config
     cfg = OmegaConf.create(
@@ -256,7 +254,7 @@ def main():
     print(f"Sigma: {args.sigma}")
     print(f"Train times: {args.train_times}")
     print(f"NFE: {args.nfe}")
-    print("")
+    print()
 
     # Create model
     print("Creating 3MSBM model...")
