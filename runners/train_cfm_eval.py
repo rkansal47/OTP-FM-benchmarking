@@ -34,8 +34,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import ot
 import torch
-import torch.nn as nn
 import torchdiffeq
+from torch import nn
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
@@ -46,14 +46,13 @@ DEFAULT_OUTPUT_DIR_TPL = Path(__file__).resolve().parent / "outputs" / "{method}
 TORCHCFM_DIR = Path(__file__).resolve().parents[1] / "baselines" / "conditional-flow-matching"
 sys.path.insert(0, str(TORCHCFM_DIR))
 
-from torchcfm.conditional_flow_matching import (  # noqa: E402
+from torchcfm.conditional_flow_matching import (
     ConditionalFlowMatcher,
     SchrodingerBridgeConditionalFlowMatcher,
 )
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _traj_utils import save_trajectory_and_checkpoint_torchdiffeq  # noqa: E402
-
+from _traj_utils import save_trajectory_and_checkpoint_torchdiffeq
 
 # ── Import OTP-FM data loaders without triggering the experiments package ───
 
