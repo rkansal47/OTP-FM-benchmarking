@@ -37,8 +37,8 @@ OTP_FM_DIR = BASE_DIR / "OTP-FM"
 VGFM_ROOT = Path(__file__).resolve().parents[1] / "baselines" / "VGFM"
 sys.path.insert(0, str(VGFM_ROOT))
 
-from VGFM.models import FNet, ODEFunc2  # noqa: E402
-from VGFM.train import pretrain  # noqa: E402
+from VGFM.models import FNet, ODEFunc2
+from VGFM.train import pretrain
 
 
 def _import_from(name, filepath):
@@ -402,7 +402,7 @@ def run_experiment(exp_name, seed=42, device_str="cuda", save_dir=None):
             )
         traj_np = generated.cpu().numpy().transpose(1, 0, 2).astype(np.float32)
         t_eval_norm = (t_span_ode.cpu().numpy() / ode_t_max).astype(np.float32)
-        from _traj_utils import save_trajectory_npz, save_torch_checkpoint
+        from _traj_utils import save_torch_checkpoint, save_trajectory_npz
 
         holdout_str = "_".join(map(str, holdout)) if holdout else "none"
         base = f"fold{fold_idx}_holdout{holdout_str}_seed{seed}"
