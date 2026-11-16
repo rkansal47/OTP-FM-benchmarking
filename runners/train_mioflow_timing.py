@@ -11,8 +11,8 @@ Usage:
 
 import argparse
 import sys
-from pathlib import Path
 import time
+from pathlib import Path
 
 import anndata
 import numpy as np
@@ -22,9 +22,9 @@ import torch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "baselines" / "MIOFlow"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from mioflow.gaga import fit_gaga  # noqa: E402
-from mioflow.mioflow import MIOFlow  # noqa: E402
-from _runtime_patches import patch_mioflow_odeint  # noqa: E402
+from _runtime_patches import patch_mioflow_odeint
+from mioflow.gaga import fit_gaga
+from mioflow.mioflow import MIOFlow
 
 patch_mioflow_odeint()  # force RK4 step_size=0.1 (paper-run integrator config)
 
