@@ -19,30 +19,30 @@ Usage:
 
 import argparse
 import os
+import random
 import sys
 import time
-import random
 
 import numpy as np
 import pandas as pd
 import torch
-import torch.optim as optim
+from torch import optim
 from tqdm import tqdm
 
 DEEPRUOT_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), "baselines", "DeepRUOT")
 sys.path.insert(0, DEEPRUOT_ROOT)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from _runtime_patches import shim_tqdm_notebook  # noqa: E402
+from _runtime_patches import shim_tqdm_notebook
 
 shim_tqdm_notebook()  # DeepRUOT/train.py uses `from tqdm.notebook import tqdm`
 
-from DeepRUOT.models import FNet, scoreNet2  # noqa: E402
-from DeepRUOT.losses import OT_loss1  # noqa: E402
-from DeepRUOT.train import train_un1, train_all  # noqa: E402
-from DeepRUOT.utils import (  # noqa: E402
+from DeepRUOT.losses import OT_loss1
+from DeepRUOT.models import FNet, scoreNet2
+from DeepRUOT.train import train_all, train_un1
+from DeepRUOT.utils import (
+    SchrodingerBridgeConditionalFlowMatcher,
     generate_state_trajectory,
     get_batch,
-    SchrodingerBridgeConditionalFlowMatcher,
 )
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))

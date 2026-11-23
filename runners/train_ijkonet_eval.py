@@ -31,15 +31,16 @@ IJKONET_DIR = Path(__file__).resolve().parents[1] / "baselines" / "iJKOnet"
 sys.path.insert(0, str(IJKONET_DIR))
 os.chdir(str(IJKONET_DIR))
 
+from pathlib import Path
+
 import jax
 import numpy as np
 import yaml
-from pathlib import Path
 from models import EnumMethod, get_model
+from torch.utils.data import DataLoader, Dataset
 from utils.dataset.dataset import PopulationEvalDataset
 from utils.sde_simulator import get_SDE_predictions
 from utils.train.config import resolve_tau_for_solver
-from torch.utils.data import DataLoader, Dataset
 
 
 class FilteredPopulationDataset(Dataset):
