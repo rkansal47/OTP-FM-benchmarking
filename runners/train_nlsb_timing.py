@@ -14,14 +14,14 @@ Usage:
 import argparse
 import json
 import os
+import random
 import sys
 import time
-import random
 
 import numpy as np
 import torch
+from torch import optim
 from torch.utils.data import DataLoader
-import torch.optim as optim
 
 NLSB_DIR = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "baselines", "NLSB"
@@ -29,8 +29,8 @@ NLSB_DIR = os.path.join(
 sys.path.insert(0, NLSB_DIR)
 os.chdir(NLSB_DIR)
 
-from model import SDENet, SDE_MODEL_NAME, LAGRANGIAN_NAME
-from dataset import scRNASeq, BalancedBatchSampler
+from dataset import BalancedBatchSampler, scRNASeq
+from model import LAGRANGIAN_NAME, SDE_MODEL_NAME, SDENet
 
 CONFIGS = {
     "eb5": "config/rna/NLSB/D/train.json",
